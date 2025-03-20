@@ -1,3 +1,17 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION["usuario_id"])) {
+    header("Location: login.html");
+    exit;
+}
+
+$nombre = htmlspecialchars($_SESSION["usuario_nombre"]);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +34,9 @@
         </div>
     </header>
     <div class="access__container">
+        <h2>Bienvenido, <?php echo $nombre; ?>!</h2>
+        <p>Has iniciado sesión correctamente.</p>
+        <a href="logout.php">Cerrar sesión</a>
         <h2>Accesos Rápidos</h2>
         <div class="access__items">
             <div class="access" onclick="window.location='nuevoLibro.html'">

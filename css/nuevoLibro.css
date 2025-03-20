@@ -47,7 +47,6 @@ header img{
 
 .newBook__container form{
     width: 40%;
-    background-colsor: red;
     display: flex;
     flex-direction: column;
     justify-content: start;
