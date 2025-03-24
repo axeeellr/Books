@@ -84,15 +84,6 @@ $nombre = htmlspecialchars($_SESSION["usuario_nombre"]);
                     <i class="fa-solid fa-pen-nib"></i>
                 </div>
             </div>
-            <div class="access">
-                <div class="access__info">
-                    <h3>Mi Perfil</h3>
-                    <p>Revisa o edita tus datos personales.</p>
-                </div>
-                <div class="access__icon">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-            </div>
         </div>
     </div>
 </body>
