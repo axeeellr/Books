@@ -1,11 +1,17 @@
 <?php
 require 'conexion.php';
 
-$sql = "SELECT categoria, COUNT(*) AS total_libros FROM libros GROUP BY categoria";
+$sql = "SELECT titulo, autor, categoria, fecha_compra, imagen FROM libros ORDER BY categoria, titulo";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Agrupar los libros por categoría
+$categorias = [];
+foreach ($libros as $libro) {
+    $categorias[$libro['categoria']][] = $libro;
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,20 +38,23 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="categories__container">
         <h2>Categorías de Libros</h2>
         <a href="index.php">Volver a inicio</a>
+        <?php foreach ($categorias as $categoria => $librosCategoria): ?>
+        <h3>Categoría:<?= htmlspecialchars($categoria); ?></h3>
         <div class="categories__items">
-        <?php foreach ($categorias as $cat): ?>
+        <?php foreach ($librosCategoria as $libro): ?>
             <div class="category">
                 <div class="category__info">
-                    <h3><?= htmlspecialchars($cat['categoria']); ?></h3>
-                    <p>Libros: <?= $cat['total_libros']; ?></p>
+                    <h3><?= htmlspecialchars($libro['titulo']); ?></h3>
+                    <p><?= htmlspecialchars($libro['autor']); ?></p>
+                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?></p>
                 </div>
                 <div class="category__books">
-                    <img src="img/book.png" alt="">
-                    <img src="img/book.png" alt="">
+                    <img src="<?= $libro["imagen"] ?>" alt="">
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
+        <?php endforeach; ?>
     </div>
 </body>
 </html>

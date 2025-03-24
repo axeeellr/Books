@@ -37,10 +37,10 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="book" onclick="window.location='libro.html'">
                 <img src="<?= $libro["imagen"] ?>">
                 <div class="book__info">
-                    <h3><?= htmlspecialchars($libro["titulo"]) ?>
-                    <p><?= htmlspecialchars($libro["autor"]) ?>
-                    <p><?= htmlspecialchars($libro["categoria"]) ?>
-                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?>
+                    <h3><?= htmlspecialchars($libro["titulo"]) ?></h3>
+                    <p><?= htmlspecialchars($libro["autor"]) ?></p>
+                    <p><?= htmlspecialchars($libro["categoria"]) ?></p>
+                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
