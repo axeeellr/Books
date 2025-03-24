@@ -48,7 +48,7 @@ $nombre = htmlspecialchars($_SESSION["usuario_nombre"]);
                     <i class="fa-solid fa-circle-plus"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='libros.html'">
+            <div class="access" onclick="window.location='libros.php'">
                 <div class="access__info">
                     <h3>Mis Libros</h3>
                     <p>Busca los libros por Autor o por Título.</p>
@@ -57,7 +57,7 @@ $nombre = htmlspecialchars($_SESSION["usuario_nombre"]);
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='categorias.html'">
+            <div class="access" onclick="window.location='categorias.php'">
                 <div class="access__info">
                     <h3>Categorías</h3>
                     <p>Accede a los libros clasificados por categorías.</p>
