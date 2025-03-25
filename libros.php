@@ -1,3 +1,11 @@
+<?php
+require 'conexion.php';
+
+$sql = "SELECT * FROM libros";
+$stmt = $conn->query($sql);
+$libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +30,20 @@
     </header>
     <div class="books__container">
         <h2>Mis Libros</h2>
+        <a href="index.php">Volver a inicio</a>
         <input type="search" class="searchBook" name="buscarLibro" id="buscarLibro" placeholder="Título o autor...">
         <div class="books">
+            <?php foreach ($libros as $libro): ?>
             <div class="book" onclick="window.location='libro.html'">
-                <img src="" alt="">
+                <img src="<?= $libro["imagen"] ?>">
                 <div class="book__info">
-                    <h3>Cuento de Navidad</h3>
-                    <p>Charles Dickens</p>
-                    <p>1843</p>
+                    <h3><?= htmlspecialchars($libro["titulo"]) ?></h3>
+                    <p><?= htmlspecialchars($libro["autor"]) ?></p>
+                    <p><?= htmlspecialchars($libro["categoria"]) ?></p>
+                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?></p>
                 </div>
             </div>
-            <div class="book">
-                <img src="" alt="">
-                <div class="book__info">
-                    <h3>Don Quijote de l...</h3>
-                    <p>Miguel de Cervantes</p>
-                    <p>1605</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
