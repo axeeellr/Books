@@ -1,9 +1,9 @@
 <?php
 require 'conexion.php';
 
-$sql = "SELECT * FROM libros";
+$sql = "SELECT * FROM autor";
 $stmt = $conn->query($sql);
-$libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$autores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -29,17 +29,15 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
     <div class="books__container">
-        <h2>Mis Libros</h2>
+        <h2>Mis Autores</h2>
         <a href="index.php">Volver a inicio</a>
         <div class="books">
-            <?php foreach ($libros as $libro): ?>
+            <?php foreach ($autores as $autor): ?>
             <div class="book" onclick="window.location='libro.html'">
-                <img src="<?= $libro["imagen"] ?>">
+                <img src="<?= $autor["imagen"] ?>">
                 <div class="book__info">
-                    <h3><?= htmlspecialchars($libro["titulo"]) ?></h3>
-                    <p><?= htmlspecialchars($libro["autor"]) ?></p>
-                    <p><?= htmlspecialchars($libro["categoria"]) ?></p>
-                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?></p>
+                    <h3><?= htmlspecialchars($autor["nombre"]) ?></h3>
+                    <p><?= htmlspecialchars($autor["nacionalidad"]) ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
