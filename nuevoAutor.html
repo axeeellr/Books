@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nuevoLibro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/61fb4717c0.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="img/book.png">
+    <title>Luz de Letras | Nuevo Libro</title>
+</head>
+<body>
+    <header>
+        <img src="img/book.png" alt="Libro">
+        <div class="header__title">
+            <h1>Luz De Letras</h1>
+            <p>Organiza, descubre y disfruta</p>
+        </div>
+    </header>
+    <div class="newBook__container">
+        <h2>Nuevo Autor</h2>
+        <a href="index.php">Volver a inicio</a>
+        <a href="autores.php">Ver lista de autores</a>
+        <form action="nuevoAutor.php" method="POST" enctype="multipart/form-data">
+            <div class="form__option__container">
+                <div class="form__option">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div class="form__option">
+                    <label for="nacionalidad">Nacionalidad</label>
+                    <input type="text" name="nacionalidad" id="nacionalidad">
+                </div>
+            </div>
+            <div class="form__option__container">
+                <div class="form__option">
+                    <label for="portada">Imagen de Portada</label>
+                    <input type="file" name="portada" id="portada">
+                </div>
+            </div>
+            <div class="form__button">
+                <input type="submit" value="GUARDAR">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
